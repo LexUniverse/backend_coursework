@@ -1,0 +1,38 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+   <main>
+           <section>
+               <form method="get">
+                   <p><label for="name">Ваше имя: </label>
+                   <input required type="text" name="name" id="name"></p>
+
+                   <p><label for="number">Ваш номер телефона: </label>
+                   <input pattern="^[ 0-9]+$"type="tel" name="number" id="number"maxlength="11" minlength="11"></p>
+
+                   <p><label for="mail">Ваш адрес электронной почты: </label>
+                   <input type="email" name="email" id="email"></p>
+
+                   <p><label for="fil">Если требуется загрузите скриншот/фотографию: </label>
+                   <input type="file" name="fil" id="fil"></p>
+
+                   <p><label for="check">Подтвердите согласие на обработку персональных данных: </label>
+                    <input required checked type="checkbox" name="check" id="check"></p>
+
+                    <p>Предпочтительный способ свзяи: </p>
+
+                    <p><label for="rad">Электронная почта</label>
+                    <input type="radio" name="rad" id="rad">
+
+                    <label for="rad">По номеру телефона</label>
+                    <input type="radio" name="rad" id="rad"></p>
+
+                    <label for="about">Комментарий к обращению</label>
+                    <textarea id="about" name="about" rows="2" cols="40" ></textarea>
+
+
+                    <p><label for="subm"></label>
+                    <input button="Отправить форму" type="submit" name="subm" id="subm"></p>
+                </form>
+           </section>
+    </main>
+{% endblock %}

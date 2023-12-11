@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+    <main>
+    {% for el in all_users %}
+        <section>
+            <p>Username = {{ el.username }}</p>
+            <p>User ID = {{ el.id }}</p>
+            <p>Email = {{ el.email }}</p>
+            <p>Уровень доступа =
+                {% if el.is_superuser %}
+                    Админ
+                {% elif el.is_staff %}
+                    Модератор
+                {% else %}
+                    Простой юзер
+                {% endif %}
+            </p>
+            <form action="#" method="post">
+                {% csrf_token %}
+                {% if not el.is_superuser %}
+                    <input type="hidden" name="chk[]" value="{{ el.id }}" {% if el.is_staff %}checked{% endif %} data_user_id="" />
+                    <button type="submit">Изменить роль</button>
+                {% endif %}
+            </form>
+        </section>
+    {% endfor %}
+</main>
+
+
+{% endblock %}

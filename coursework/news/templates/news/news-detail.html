@@ -1,0 +1,12 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+    <main>
+      <section>
+        <h1>{{article.title}}</h1>
+        <p>{{ article.full_text }}</p>
+        <img class = "main-img" src="{{article.img_url}}" alt="Логотип трека">
+        <p>{{ article.date }}</p>
+      </section>
+    </main>
+{% endblock %}
+

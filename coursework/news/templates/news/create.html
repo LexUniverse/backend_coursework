@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+    <main>
+        <section>
+            <form action="{% url 'create' %}" method="post">
+                {% csrf_token %}
+                {{ form.title }}<br>
+                {{ form.anons }}<br>
+                {{ form.full_text }}<br>
+                {{ form.img_url }}<br>
+                <button class="btn" type="submit">Добавить статью</button><br>
+            </form>
+        </section>
+        <a class="menu__item" href="{% url 'check' %}">Проверка предложенных статей</a>
+    </main>
+
+{% endblock %}
+

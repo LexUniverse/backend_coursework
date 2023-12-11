@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+    <main>
+        <section>
+            <div class="container">
+                <div class="forms">
+                    <div class="form signup">
+                        <span class="title">Регистрация</span>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn" type="submit">Зарегистрироваться</button><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+

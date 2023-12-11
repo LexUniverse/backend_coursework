@@ -1,0 +1,34 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+    <main>
+        {% if check_news %}
+            {% for el in check_news%}
+                    <section>
+                        <p>{{ el.title }}</p>
+                        <p>{{ el.anons }}</p>
+                        <p>{{ el.full_text }}</p>
+                        <img class = "main-img" src="{{el.img_url}}" alt="Логотип трека">
+                        <p>{{ el.date }}</p>
+                        <p>elementID = {{ el.id }}</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ el.id }}">
+                            <input type="hidden" name="btn_type" value="add">
+                            <button type="submit">Добавить новость на сайт</button>
+                        </form>
+                        <form action="{% url 'check-news-update' el.id %}">
+                            <button>Редактировать</button>
+                        </form>
+                        <form action="{% url 'check-delete-confirm' el.id %}">
+                            <button type="submit">Удалить предложенную новость</button>
+                        </form>
+                    </section>
+            {% endfor %}
+        {% else %}
+            <section>
+                <p>У вас еще нет предложенных новостей</p>
+            </section>
+        {% endif %}
+    </main>
+{% endblock %}
+

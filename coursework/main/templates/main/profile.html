@@ -1,0 +1,10 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+    <main>
+        <section>
+            <p>Никнейм = {{ request.user.username }}</p>
+            <p>Ваш ID = {{ request.user.id }}</p>
+            <p>Уровень доступа = {{ role }}</p>
+        </section>
+    </main>
+{% endblock %}
